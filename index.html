@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Personalizado</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            perspective: 1000px;
+        }
+        
+        .area-do-formulario {
+            width: 300px;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .inner-content {
+            backface-visibility: hidden;
+            transition: transform 0.6s;
+            position: absolute;
+            width: 100%;
+            top: 0;
+        }
+        
+        .back-content {
+            backface-visibility: hidden;
+            transition: transform 0.6s;
+            transform: rotateY(180deg);
+            position: absolute;
+            width: 100%;
+            top: 0;
+        }
+        
+        .area-botao {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .area-botao button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        
+        .formulario {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info {
+            margin-bottom: 15px;
+        }
+        
+        .label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .data-info {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        
+        .genero {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .genero div {
+            display: flex;
+            align-items: center;
+        }
+        
+        .genero label {
+            margin-left: 5px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="area-do-formulario" id="formContainer">
+                <div class="inner-content">
+                    <!-- Conteúdo do formulário de cadastro -->
+                    <form class="formulario" id="formCadastro">
+                        <div class="introducao">
+                            <div class="titulo">Formulário Personalizado</div>
+                            <div class="texto">Preencha o formulário abaixo:</div>
+                        </div>
+                        <hr>
+                        <div class="area-nome-completo">
+                            <div class="area">
+                                <div class="info">
+                                    <div class="label">Nome</div>
+                                    <input type="text" class="data-info" placeholder="Nome" required>
+                                </div>
+                            </div>
+                            <div class="area">
+                                <div class="info">
+                                    <div class="label">Sobrenome</div>
+                                    <input type="text" class="data-info" placeholder="Sobrenome" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <div class="label">Email</div>
+                            <input type="email" class="data-info" placeholder="Email" required>
+                        </div>
+                        <div class="info">
+                            <div class="label">Data de Nascimento</div>
+                            <div class="data-nascimento">
+                                <select name="dia" class="data-info" required>
+                                    <option value="" disabled selected>Dia</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select>
+                                <select name="mes" class="data-info" required>
+                                    <option value="" disabled selected>Mês</option>
+                                    <option value="jan">Jan</option>
+                                    <option value="fev">Fev</option>
+                                    <option value="mar">Mar</option>
+                                    <option value="abr">Abr</option>
+                                    <option value="mai">Mai</option>
+                                    <option value="jun">Jun</option>
+                                    <option value="jul">Jul</option>
+                                    <option value="ago">Ago</option>
+                                    <option value="set">Set</option>
+                                    <option value="out">Out</option>
+                                    <option value="nov">Nov</option>
+                                    <option value="dez">Dez</option>
+                                </select>
+                                <select name="ano" class="data-info" required>
+                                    <option value="" disabled selected>Ano</option>
+                                    <option value="1999">1999</option>
+                                    <option value="2000">2000</option>
+                                    <option value="2001">2001</option>
+                                    <option value="2002">2002</option>
+                                    <option value="2003">2003</option>
+                                    <option value="2004">2004</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
+                                </select>
+                            </div>
+                        </div>
+                        <label class="label">Gênero</label>
+                        <div class="genero">
+                            <div class="feminino">
+                                <input type="radio" name="genero" id="feminino" value="Feminino" required>
+                                <label for="feminino">Feminino</label>
+                            </div>
+                            <div class="masculino">
+                                <input type="radio" name="genero" id="masculino" value="Masculino" required>
+                                <label for="masculino">Masculino</label>
+                            </div>
+                            <div class="personalizado">
+                                <input type="radio" id="outro" name="genero" value="Outro">
+                                <label for="outro">Outro</label>
+                            </div>
+                        </div>
+                        <div class="area-botao">
+                            <button type="button" id="submitCadastro" class="btn">Cadastre-se</button>
+                        </div>
+                        <div class="termos">
+                            Ao enviar este formulário, você concorda com nossos <a href="#">Termos e Condições</a> e <a href="#">Política de Privacidade</a>.
+                        </div>
+                </div>
+                </form>
+            </div>
+            <div class="back-content">
+                <!-- Conteúdo do formulário de login -->
+                <form class="formulario" id="formLogin">
+                    <div class="info">
+                        <div class="label">Nome de Usuário</div>
+                        <input type="text" class="data-info" placeholder="Nome de Usuário" required>
+                    </div>
+                    <div class="info">
+                        <div class="label">Senha</div>
+                        <input type="password" class="data-info" placeholder="Senha" required>
+                    </div>
+                    <div class="area-botao">
+                        <button type="button" id="submitLogin" class="btn">Login</button>
+                    </div>
+                    <div class="termos">
+                        Ao enviar este formulário, você concorda com nossos <a href="#">Termos e Condições</a> e <a href="#">Política de Privacidade</a>.
+                    </div>
+            </div>
+            </form>
+        </div>
+        </div>
+    </section>
+    <script>
+        $(document).ready(function() {
+            let isRotated = false;
+
+            $('#submitCadastro').click(function() {
+                const formCadastro = document.getElementById('formCadastro');
+                if (formCadastro.checkValidity()) {
+                    const formContainer = $('#formContainer');
+                    formContainer.css('transform', 'rotateY(180deg)');
+                    isRotated = true;
+                } else {
+                    formCadastro.reportValidity();
+                }
+            });
+
+            $('#submitLogin').click(function() {
+                const formLogin = document.getElementById('formLogin');
+                if (formLogin.checkValidity()) {
+                    // Lógica de login aqui
+                    alert('Login realizado com sucesso!');
+                } else {
+                    formLogin.reportValidity();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
